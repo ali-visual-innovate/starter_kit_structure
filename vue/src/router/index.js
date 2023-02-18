@@ -1,12 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../components/Home.vue";
 import permissionsRoutes from "./permissions.routes";
+import rolesRoutes from "./roles.routes";
+
+
 const routes = [
   {
     path: "/",
     component: Home,
+    name: 'Home',
     children: [
-        permissionsRoutes,
+      ...Object.values(permissionsRoutes),
+      ...Object.values(rolesRoutes),
     ],
   },
   {

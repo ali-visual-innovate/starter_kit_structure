@@ -3,7 +3,7 @@
 import LocaleSelect from "./LocaleSelect.vue";
 import { useAppLangStore } from "../stores/AppLangStore"
 import { ref, watch, computed, onMounted } from "vue";
-import { useAuthStore } from "../stores/auth";
+import { useAuthStore } from "../stores/Auth";
 import UserProfileMenu from "./UserProfileMenu.vue";
 import { useTheme } from 'vuetify'
 
@@ -76,19 +76,16 @@ onMounted(async () => {
 
                 <v-list density="compact" nav>
                     <v-list-item
-                        prepend-icon="mdi-folder"
-                        :title="$t('myFiles')"
-                        value="myfiles"
+                        prepend-icon="mdi-security"
+                        :title="$t('permissions')"
+                        value="permissions"
+                        :to="{name: 'Permissions'}"
                     ></v-list-item>
                     <v-list-item
-                        prepend-icon="mdi-account-multiple"
-                        :title="$t('sharedWithMe')"
-                        value="shared"
-                    ></v-list-item>
-                    <v-list-item
-                        prepend-icon="mdi-star"
-                        :title="$t('starred')"
-                        value="starred"
+                        prepend-icon="mdi-shield-account"
+                        :title="$t('roles')"
+                        value="roles"
+                        :to="{name: 'Roles'}"
                     ></v-list-item>
                 </v-list>
             </v-navigation-drawer>

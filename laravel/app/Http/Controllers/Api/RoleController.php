@@ -12,9 +12,9 @@ class RoleController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $roles = Role::orderBy('id','DESC')->paginate(5);
+        $roles = Role::where('name', 'LIKE' , '%'.$request->name.'%')->orderBy('id','DESC')->paginate($request->size);
 
         return response([
             'roles' => $roles,

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\PassportAuthController;
+use App\Http\Controllers\Api\PermissionController;
+use App\Http\Controllers\Api\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,8 +33,8 @@ Route::middleware('auth:api')->group(function () {
      * roles
      */
     Route::group(['prefix' => 'roles'], function() {
-        Route::get('/', [RoleController::class, 'index'])->name('roles.index');
-        Route::post('/', [RoleController::class, 'store'])->name('roles.store');
+        Route::post('/', [RoleController::class, 'index'])->name('roles.index');
+        Route::post('/create', [RoleController::class, 'store'])->name('roles.store');
         Route::get('/{role}', [RoleController::class, 'show'])->name('roles.show');
         Route::patch('/{role}/update', [RoleController::class, 'update'])->name('roles.update');
         Route::delete('/{role}/delete', [RoleController::class, 'destroy'])->name('roles.destroy');
@@ -42,8 +44,8 @@ Route::middleware('auth:api')->group(function () {
      * permissions
      */
     Route::group(['prefix' => 'permissions'], function() {
-        Route::get('/', [PermissionController::class, 'index'])->name('permissions.index');
-        Route::post('/', [PermissionController::class, 'store'])->name('permissions.store');
+        Route::post('/', [PermissionController::class, 'index'])->name('permissions.index');
+        Route::post('/create', [PermissionController::class, 'store'])->name('permissions.store');
         Route::get('/{permission}', [PermissionController::class, 'show'])->name('permissions.show');
         Route::patch('/{permission}/update', [PermissionController::class, 'update'])->name('permissions.update');
         Route::delete('/{permission}/delete', [PermissionController::class, 'destroy'])->name('permissions.destroy');

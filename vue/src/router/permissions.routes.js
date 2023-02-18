@@ -1,33 +1,33 @@
 // permissions
 
-const Permissions = () => import("../views/permissions/Permissions.vue");
-const ShowPermission = () => import("../views/permissions/ShowPermission.vue");
-const EditPermission = () => import("../views/permissions/EditPermission.vue");
-const CreatePermission = () => import("../views/permissions/CreatePermission.vue");
+const Index = () => import("../views/permissions/Index.vue");
+const Show = () => import("../views/permissions/Show.vue");
+const Edit = () => import("../views/permissions/Edit.vue");
+const Create = () => import("../views/permissions/Create.vue");
 
 const permissionsRoutes = [
   {
     path: "permissions",
     name: "Permissions",
-    component: Permissions,
+    component: Index,
   },
   // create
   {
     path: "permissions/create",
     name: "CreatePermission",
-    component: CreatePermission,
+    component: Create,
   },
   // show
   {
     path: "permissions/:id",
     name: "ShowPermission",
-    component: ShowPermission,
+    component: Show,
   },
   // edit
   {
     path: "permissions/:id/edit",
     name: "EditPermission",
-    component: EditPermission,
+    component: Edit,
   },
 ];
 

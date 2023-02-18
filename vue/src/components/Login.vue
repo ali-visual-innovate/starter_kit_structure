@@ -3,7 +3,7 @@
 // imports
 import { ref } from "vue";
 import sawaLogo from "../assets/img/sawa_logo.svg";
-import { useAuthStore } from "../stores/auth";
+import { useAuthStore } from "../stores/Auth";
 
 // variables
 const authStore = useAuthStore();

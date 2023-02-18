@@ -12,10 +12,10 @@ class PermissionController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $permissions = Permission::orderBy('id','DESC')->paginate(10);
-
+        // $permissions = Permission::paginate($request->all());
+        $permissions = Permission::where('name', 'LIKE' , '%'.$request->name.'%')->orderBy('id','DESC')->paginate($request->size);
         return response([
             'permissions' => $permissions,
         ]);

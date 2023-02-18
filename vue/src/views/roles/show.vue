@@ -2,7 +2,7 @@
 import { ref, onMounted } from "vue";
 
 const items = ref([]);
-onMounted(async () => {
+onMounted( () => {
   const response = axios.get("/api/permissions");
   items.value = response.data.permissions;
 });

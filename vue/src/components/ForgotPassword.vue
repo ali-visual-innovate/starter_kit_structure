@@ -1,7 +1,7 @@
 <script setup>
 // imports
 import { ref } from "vue";
-import { useAuthStore } from "../stores/auth";
+import { useAuthStore } from "../stores/Auth";
 
 // variables
 const form = ref({
