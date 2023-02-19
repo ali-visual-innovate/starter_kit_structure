@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\PassportAuthController;
 use App\Http\Controllers\Api\PermissionController;
 use App\Http\Controllers\Api\RoleController;
+use App\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,10 +35,10 @@ Route::middleware('auth:api')->group(function () {
      */
     Route::group(['prefix' => 'roles'], function() {
         Route::post('/', [RoleController::class, 'index'])->name('roles.index');
-        Route::post('/create', [RoleController::class, 'store'])->name('roles.store');
+        Route::post('/create', [RoleController::class, 'store'])->name('roles.create');
         Route::get('/{role}', [RoleController::class, 'show'])->name('roles.show');
         Route::patch('/{role}/update', [RoleController::class, 'update'])->name('roles.update');
-        Route::delete('/{role}/delete', [RoleController::class, 'destroy'])->name('roles.destroy');
+        Route::delete('/{role}/delete', [RoleController::class, 'destroy'])->name('roles.delete');
     });
 
     /**
@@ -45,9 +46,20 @@ Route::middleware('auth:api')->group(function () {
      */
     Route::group(['prefix' => 'permissions'], function() {
         Route::post('/', [PermissionController::class, 'index'])->name('permissions.index');
-        Route::post('/create', [PermissionController::class, 'store'])->name('permissions.store');
+        Route::post('/create', [PermissionController::class, 'store'])->name('permissions.create');
         Route::get('/{permission}', [PermissionController::class, 'show'])->name('permissions.show');
         Route::patch('/{permission}/update', [PermissionController::class, 'update'])->name('permissions.update');
-        Route::delete('/{permission}/delete', [PermissionController::class, 'destroy'])->name('permissions.destroy');
+        Route::delete('/{permission}/delete', [PermissionController::class, 'destroy'])->name('permissions.delete');
+    });
+
+    /**
+     * users
+     */
+    Route::group(['prefix' => 'users'], function() {
+        Route::post('/', [UserController::class, 'index'])->name('users.index');
+        Route::post('/create', [UserController::class, 'store'])->name('users.create');
+        Route::get('/{user}', [UserController::class, 'show'])->name('users.show');
+        Route::patch('/{user}/update', [UserController::class, 'update'])->name('users.update');
+        Route::delete('/{user}/delete', [UserController::class, 'destroy'])->name('users.delete');
     });
 });

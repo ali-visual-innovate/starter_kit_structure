@@ -7,6 +7,6 @@ export default new createI18n({
     globalInjection: true,
     locale: localStorage.getItem('appLang') || 'en',
     fallbackLocale: "en",
-    availableLocales: ["en", "ar"],
+    availableLocales: ['en', 'ar'],
     messages: { en, ar },
 });

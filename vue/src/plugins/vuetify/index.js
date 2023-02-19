@@ -2,12 +2,12 @@
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
 import { aliases, mdi } from "vuetify/iconsets/mdi";
-import i18n from "../i18n";
+// import i18n from "../i18n";
 
 // add localization
-import { createVueI18nAdapter } from "vuetify/locale/adapters/vue-i18n";
+// import { createVueI18nAdapter } from "vuetify/locale/adapters/vue-i18n";
 
-import { useI18n } from "vue-i18n";
+// import { useI18n } from "vue-i18n";
 
 export default createVuetify({
     icons: {
@@ -18,13 +18,9 @@ export default createVuetify({
             mdi,
         },
     },
-    locale: {
-        adapter: createVueI18nAdapter({ i18n, useI18n }),
-    },
     theme: {
         defaultTheme: 'light',
-
-      },
+    },
 });
 
 

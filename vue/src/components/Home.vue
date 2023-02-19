@@ -76,6 +76,12 @@ onMounted(async () => {
 
                 <v-list density="compact" nav>
                     <v-list-item
+                        prepend-icon="mdi-account-multiple"
+                        :title="$t('users')"
+                        value="users"
+                        :to="{name: 'Users'}"
+                    ></v-list-item>
+                    <v-list-item
                         prepend-icon="mdi-security"
                         :title="$t('permissions')"
                         value="permissions"

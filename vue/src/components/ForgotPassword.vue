@@ -1,6 +1,6 @@
 <script setup>
 // imports
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useAuthStore } from "../stores/Auth";
 
 // variables
@@ -11,13 +11,17 @@ const form = ref({
 // validation
 const valid = ref(false);
 const rules = ref({
-  email : [
-    v => !!v || 'E-mail is required',
-    v => /.+@.+/.test(v) || 'E-mail must be valid',
+  email: [
+    (v) => !!v || "E-mail is required",
+    (v) => /.+@.+/.test(v) || "E-mail must be valid",
   ],
-})
+});
 
 const authStore = useAuthStore();
+
+onMounted(() => {
+  authStore.resetAuthStore();
+});
 </script>
 
 <template>
@@ -36,7 +40,7 @@ const authStore = useAuthStore();
               :close-label="$t('close')"
               v-if="authStore.successMsg"
             >
-                  {{ authStore.successMsg }}
+              {{ authStore.successMsg }}
             </v-alert>
             <v-alert
               type="error"
@@ -58,7 +62,10 @@ const authStore = useAuthStore();
               </template>
             </v-alert>
           </v-card-text>
-          <v-form @submit.prevent="authStore.forgotPassword(form)" v-model="valid">
+          <v-form
+            @submit.prevent="authStore.forgotPassword(form)"
+            v-model="valid"
+          >
             <v-card-text>
               <v-text-field
                 outline

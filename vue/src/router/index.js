@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../components/Home.vue";
 import permissionsRoutes from "./permissions.routes";
 import rolesRoutes from "./roles.routes";
+import usersRoutes from "./users.routes";
 
 
 const routes = [
@@ -12,6 +13,7 @@ const routes = [
     children: [
       ...Object.values(permissionsRoutes),
       ...Object.values(rolesRoutes),
+      ...Object.values(usersRoutes),
     ],
   },
   {

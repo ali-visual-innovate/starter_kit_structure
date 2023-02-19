@@ -3,8 +3,11 @@ import { createPinia } from "pinia";
 import router from "./router";
 // i18n
 import i18n from "./plugins/i18n";
+
 // Vuetify
 import vuetify from "./plugins/vuetify";
+// import vuetify sass
+// import './main.scss'
 //import vueitfy icons
 import "@mdi/font/css/materialdesignicons.css";
 // pinia resetStore

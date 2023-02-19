@@ -4,6 +4,6 @@
 
 <template>
   <div>
-    this is roles show
+    this is users show
   </div>
 </template>

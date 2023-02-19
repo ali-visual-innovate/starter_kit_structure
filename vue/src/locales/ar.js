@@ -1,5 +1,6 @@
 export default {
     close: "إغلاق",
-    roles: "أدوار",
-    permissions: "صلاحيات",
+    roles: "الأدوار",
+    permissions: "الصلاحيات",
+    users: "المستخدمين",
 }
